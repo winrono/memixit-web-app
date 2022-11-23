@@ -9,7 +9,6 @@ services:
       - ./src:/app/src
       - ./vite.config.ts:/app/vite.config.ts
       - ./tsconfig.json:/app/tsconfig.json
-      - /app/src/server/node_modules # https://stackoverflow.com/a/37898591 (ensuring that we don't bind to local node_modules folder)
     ports:
       - "3000:3000"
       - "24679:24679" # vite port

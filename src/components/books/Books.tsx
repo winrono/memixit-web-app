@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from 'src/hooks';
+
+import { useAppDispatch, useAppSelector } from 'hooks';
 
 import { fetchAll } from './booksSlice';
 
@@ -13,12 +14,12 @@ export function Books() {
   }, []);
 
   return (
-    <p>
+    <div>
       {status === 'failed' && <>Failed to load data from server</>}
       {status === 'loading' && <>Loading...</>}
-      {books.map((book) => {
-        return <div>{book.title}</div>;
+      {books.map((book, index) => {
+        return <div key={index}>{book.title}</div>;
       })}
-    </p>
+    </div>
   );
 }

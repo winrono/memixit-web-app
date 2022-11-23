@@ -30,16 +30,13 @@ export const counterSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchAll.pending, (state) => {
-        console.log('pending called');
         state.status = 'loading';
       })
       .addCase(fetchAll.fulfilled, (state, action) => {
-        console.log('fulfilled called');
         state.status = 'idle';
         state.books = action.payload;
       })
       .addCase(fetchAll.rejected, (state) => {
-        console.log('rejected called');
         state.status = 'failed';
       });
   },
